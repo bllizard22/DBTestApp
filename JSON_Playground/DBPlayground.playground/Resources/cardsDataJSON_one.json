@@ -1,0 +1,8 @@
+{
+    "photo": "photo_1", 
+    "price": "120000", 
+    "location": "м. Смоленская", 
+    "address": "ул. Арбат 18", 
+    "isFavourite": "false"
+
+}

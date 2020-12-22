@@ -1,0 +1,33 @@
+{
+	"1": {
+		"photo": "photo_1", 
+		"price": "120000", 
+		"location": "м. Смоленская", 
+		"address": "ул. Арбат 18", 
+		"isFavourite": "false"
+	},
+
+	"2": {
+		"photo": "photo_2", 
+		"price": "85000", 
+		"location": "м. Октябрьская", 
+		"address": "ул. Крымский Вал 6", 
+		"isFavourite": "true"
+	},
+
+	"3": {
+		"photo": "photo_3", 
+		"price": "70000", 
+		"location": "м. Дмитровская", 
+		"address": "ул. Вятская 8", 
+		"isFavourite": "true"
+	},
+
+	"4": {
+		"photo": "photo_4", 
+		"price": "105000", 
+		"location": "м. Таганская", 
+		"address": "ул. Таганка 27", 
+		"isFavourite": "false"
+	}
+}
