@@ -114,6 +114,9 @@
                                 <state key="normal" title="Завершить">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="submitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zoP-3d-BFL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -126,6 +129,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Регистрация" id="q4p-Qy-CPu"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="Xf4-7C-poc" id="NKf-ya-dK4"/>
+                        <outlet property="nameTextField" destination="QbO-ge-IIG" id="iHd-eL-5g2"/>
+                        <outlet property="phoneTextField" destination="V9z-2G-0ZQ" id="Occ-UY-tlD"/>
+                        <outlet property="submitButton" destination="ymN-mz-y0J" id="4Jb-qV-Vdo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
