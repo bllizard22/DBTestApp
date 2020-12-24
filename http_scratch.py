@@ -41,25 +41,29 @@ def start_http(host_ip, host_port):
     @app.route("/")
     def home():
         duration = str(datetime.timedelta(seconds=uptime()))[:-7].split(" ")
-        return f"Connected OK\n Time: {get_time()}"
+        return f"home GET Connected OK\n Time: {get_time()}"
 
     '''Выполняется при нажатии кнопки "Сохранить"'''
     @app.route('/', methods=['POST'])
     def wait_time_post():
-        text = request.form['text']
-        if text != '':
-            edit_config(text)
-            wait_time = text
-        else:
-            wait_time = data['wait_time']
-        duration = str(datetime.timedelta(seconds=uptime()))[:-7].split(" ")
-        days = '0'
-        if len(duration) == 1:
-            time = duration[0]
-        else:
-            days = duration[0]
-            time = duration[2]
-        return  f"Connected OK\n Time: {get_time()}"
+        # headers = request.headers
+        # print(headers)
+        body = request.get_json(force=True)
+        print(body)
+        try:
+            user_id = body['user_id']
+            new_user = {'name': body['name'],
+                        'email': body['email'],
+                        'phone': body['phone']}
+            new_record = {body['user_id']: new_user}
+            print(new_record)
+
+            with open('data.json', 'w') as file:
+                json.dump(new_record, file, indent=2)
+        except:
+            user_id = "no user data"
+
+        return  f"home POST Connected OK\n Time: {get_time()}, user_id: {user_id}"
 
     '''Внесение изменений в конфиг-файл'''
     @app.route("/config")
@@ -70,7 +74,7 @@ def start_http(host_ip, host_port):
         else:
             days = duration[0]
             time = duration[2]
-        return  f"Connected OK\n Time: {get_time()}"
+        return  f"config GET Connected OK\n Time: {get_time()}"
 
     '''Выполняется при нажатии кнопки "Сохранить настройки"'''
     @app.route('/config', methods=['POST'])
@@ -97,7 +101,7 @@ def start_http(host_ip, host_port):
             days = duration[0]
             time = duration[2]
 
-        return  f"Connected OK\n Time: {get_time()}"
+        return  f"config POST Connected OK\n Time: {get_time()}"
 
     app.run(host=host_ip, port=host_http_port)
 
