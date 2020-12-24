@@ -118,21 +118,69 @@
                                     <action selector="submitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zoP-3d-BFL"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="79" translatesAutoresizingMaskIntoConstraints="NO" id="QeT-2J-MBv">
+                                <rect key="frame" x="47.5" y="168" width="319" height="41"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAp-Nw-tps">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="41"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="EMB-YC-477"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="24"/>
+                                        <state key="normal" title="GET">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="320-hU-M0r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKk-FO-LcE">
+                                        <rect key="frame" x="199" y="0.0" width="120" height="41"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="UtO-D5-IVh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="24"/>
+                                        <state key="normal" title="POST">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="postAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FRU-0L-H0v"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqM-WD-x74">
+                                <rect key="frame" x="12" y="662.5" width="390" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QeT-2J-MBv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="6Gm-HI-Afi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ymN-mz-y0J" secondAttribute="bottom" constant="100" id="F1d-GH-nyQ"/>
                             <constraint firstItem="a2I-H0-kn7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LN2-aK-bNM"/>
+                            <constraint firstItem="QeT-2J-MBv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WIt-v1-XUc"/>
+                            <constraint firstItem="ymN-mz-y0J" firstAttribute="top" secondItem="qqM-WD-x74" secondAttribute="bottom" constant="29" id="XpJ-A1-c8D"/>
+                            <constraint firstItem="qqM-WD-x74" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="fCB-Uc-8Xu"/>
                             <constraint firstItem="ymN-mz-y0J" firstAttribute="top" secondItem="a2I-H0-kn7" secondAttribute="bottom" constant="85" id="lOs-fu-5qJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qqM-WD-x74" secondAttribute="trailing" constant="12" id="mhp-gv-L4h"/>
+                            <constraint firstItem="qqM-WD-x74" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vk6-vf-QBc"/>
                             <constraint firstItem="ymN-mz-y0J" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zsc-ip-X41"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Регистрация" id="q4p-Qy-CPu"/>
                     <connections>
                         <outlet property="emailTextField" destination="Xf4-7C-poc" id="NKf-ya-dK4"/>
+                        <outlet property="getButton" destination="eAp-Nw-tps" id="y5e-jB-WHE"/>
                         <outlet property="nameTextField" destination="QbO-ge-IIG" id="iHd-eL-5g2"/>
                         <outlet property="phoneTextField" destination="V9z-2G-0ZQ" id="Occ-UY-tlD"/>
+                        <outlet property="postButton" destination="dKk-FO-LcE" id="5kM-cP-moF"/>
+                        <outlet property="responseLabel" destination="qqM-WD-x74" id="vd4-xf-S7k"/>
                         <outlet property="submitButton" destination="ymN-mz-y0J" id="4Jb-qV-Vdo"/>
                     </connections>
                 </viewController>
