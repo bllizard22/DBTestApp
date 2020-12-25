@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var getButton: UIButton!
     @IBOutlet weak var postButton: UIButton!
     
+    var responseText: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,13 +38,14 @@ class ViewController: UIViewController {
 //        let data = try! JSONEncoder().encode(dataStruct)
         //        print(data!.name)
         
-        guard let response = sendDataPOST(name: nameTextField.text ?? ""
-                                          , email: emailTextField.text ?? ""
-                                          , phone: phoneTextField.text ?? "") else {
-            print("\nNo Response!\n")
-            return
-        }
-        responseLabel.text = response
+        sendDataPOST(name: nameTextField.text ?? ""
+                     , email: emailTextField.text ?? ""
+                     , phone: phoneTextField.text ?? ""
+                     , responseLabel: responseLabel)
+        
+        responseLabel.text = responseText
+        print("Action text \(responseText)")
+
     }
         
     @IBAction func getAction(_ sender: Any) {
@@ -62,7 +65,7 @@ class ViewController: UIViewController {
         request.httpMethod = "GET"
          
         // HTTP Request Parameters which will be sent in HTTP Request Body
-        let postString = "accept: application/json, text: 124";
+        let postString = "accept: application/json, accept: application/json, text: 124";
         // Set HTTP Request Body
 //        request.httpBody = postString.data(using: String.Encoding.utf8);
         // Perform HTTP Request
@@ -115,7 +118,7 @@ class ViewController: UIViewController {
         task.resume()
     }
     
-    func sendDataPOST(name: String, email: String, phone: String) -> String? {
+    func sendDataPOST(name: String, email: String, phone: String, responseLabel: UILabel) {
         // Create a URLRequest for an API endpoint
         let url = URL(string: "http://10.101.63.45:127/")!
         var request = URLRequest(url: url)
@@ -149,16 +152,55 @@ class ViewController: UIViewController {
                 return
             }
             
-            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string:\n \(dataString)")
-                responseMessage = "\(dataString)"
+//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+//                print("Response data string:\n \(dataString)")
+//                responseMessage = "dataString: \(dataString)"
+//                print(type(of: dataString))
+//                self.updateLabelText(flag: true, data: dataString)
+//            }
+            
+            DispatchQueue.global(qos: .background).async {
+                
+                var dataa = String()
+                
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("Response data string:\n \(dataString)")
+                    dataa = dataString
+                }
+                
+                DispatchQueue.main.async {
+                    responseLabel.text = dataa
+                }
             }
+            
 
         }
         //        responseLabel.text = responseMessage
         task.resume()
-        print("\nResponse: \(responseMessage)\n")
-        return responseMessage
+//        print("\nResponse: \(responseMessage)\n")
+
+    }
+    
+    func updateLabelText(flag: Bool, data: String) {
+        guard flag else {
+            return
+        }
+        
+        responseText = data
+        print("Update text \(responseText)")
+//        responseLabel.text = data
+    }
+    
+    func loadData(from url: URL, completion: @escaping (Result<Data?, URLError>) -> Void) throws {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let urlError = error as? URLError {
+                completion(.failure(urlError))
+            }
+            
+            if let data = data {
+                completion(.success(data))
+            }
+        }.resume()
     }
     
 //    @objc func encodeData(sender: UIButton!) {
