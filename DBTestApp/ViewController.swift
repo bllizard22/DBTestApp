@@ -33,6 +33,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:))
+                                               , name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:))
+                                               , name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:))
+                                               , name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
 
     @IBAction func submitAction(_ sender: Any) {
@@ -175,27 +181,26 @@ class ViewController: UIViewController {
 
     }
     
-//    func updateLabelText(flag: Bool, data: String) {
-//        guard flag else {
-//            return
-//        }
-//
-//        responseText = data
-//        print("Update text \(responseText)")
-////        responseLabel.text = data
-//    }
+    @objc func keyboardWillChange(notification: Notification) {
+        
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+            notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            view.frame.origin.y = -keyboardRect.height
+        }
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            view.frame.origin.y = 0
+        }
+    }
     
-//    func loadData(from url: URL, completion: @escaping (Result<Data?, URLError>) -> Void) throws {
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let urlError = error as? URLError {
-//                completion(.failure(urlError))
-//            }
-//
-//            if let data = data {
-//                completion(.success(data))
-//            }
-//        }.resume()
-//    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        nameTextField.endEditing(true)
+        emailTextField.endEditing(true)
+        phoneTextField.endEditing(true)
+    }
+
     
 //    @objc func encodeData(sender: UIButton!) {
 //
