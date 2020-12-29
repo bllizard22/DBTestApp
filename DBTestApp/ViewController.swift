@@ -13,6 +13,8 @@ struct DataJSON: Codable {
     var phone: String
 }
 
+let host_address = "http://192.168.1.59:5027/"
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
@@ -60,7 +62,7 @@ class ViewController: UIViewController {
     
     func sendTestGET() {
 //        let url = URL(string: "https://httpbin.org/post")
-        let url = URL(string: "http://192.168.1.59:5027/")
+        let url = URL(string: host_address)
         guard let requestUrl = url else { fatalError() }
         // Prepare URL Request Object
         var request = URLRequest(url: requestUrl)
@@ -87,7 +89,7 @@ class ViewController: UIViewController {
     
     func sendTestPOST(name: String, email: String, phone: String) {
 //        let url = URL(string: "https://httpbin.org/post")
-        let url = URL(string: "http://192.168.1.59:5027/")
+        let url = URL(string: host_address)
         guard let requestUrl = url else { fatalError() }
         // Prepare URL Request Object
         var request = URLRequest(url: requestUrl)
@@ -121,7 +123,7 @@ class ViewController: UIViewController {
     
     func sendDataPOST(name: String, email: String, phone: String, responseLabel: UILabel) {
         // Create a URLRequest for an API endpoint
-        let url = URL(string: "http://192.168.1.59:5027/")!
+        let url = URL(string: host_address)!
         var request = URLRequest(url: url)
         
         var responseMessage: String?
