@@ -53,12 +53,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func postAction(_ sender: Any) {
-        sendTestPOST()
+        sendTestPOST(name: nameTextField.text ?? ""
+                     , email: emailTextField.text ?? ""
+                     , phone: phoneTextField.text ?? "")
     }
     
     func sendTestGET() {
 //        let url = URL(string: "https://httpbin.org/post")
-        let url = URL(string: "http://10.101.63.45:127/")
+        let url = URL(string: "http://192.168.1.59:5027/")
         guard let requestUrl = url else { fatalError() }
         // Prepare URL Request Object
         var request = URLRequest(url: requestUrl)
@@ -66,8 +68,6 @@ class ViewController: UIViewController {
          
         // HTTP Request Parameters which will be sent in HTTP Request Body
         let postString = "accept: application/json, accept: application/json, text: 124";
-        // Set HTTP Request Body
-//        request.httpBody = postString.data(using: String.Encoding.utf8);
         // Perform HTTP Request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 
@@ -85,16 +85,17 @@ class ViewController: UIViewController {
         task.resume()
     }
     
-    func sendTestPOST() {
+    func sendTestPOST(name: String, email: String, phone: String) {
 //        let url = URL(string: "https://httpbin.org/post")
-        let url = URL(string: "http://10.101.63.45:127/")
+        let url = URL(string: "http://192.168.1.59:5027/")
         guard let requestUrl = url else { fatalError() }
         // Prepare URL Request Object
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
          
         // HTTP Request Parameters which will be sent in HTTP Request Body
-        let body = ["accept": "application/json", "text": "124"]
+        let body = ["user_id": "15", "name": name, "email": email, "phone": phone]
+//        let body = ["accept": "application/json", "text": "124"]
         let postString = try? JSONSerialization.data(
             withJSONObject: body,
             options: []
@@ -120,7 +121,7 @@ class ViewController: UIViewController {
     
     func sendDataPOST(name: String, email: String, phone: String, responseLabel: UILabel) {
         // Create a URLRequest for an API endpoint
-        let url = URL(string: "http://10.101.63.45:127/")!
+        let url = URL(string: "http://192.168.1.59:5027/")!
         var request = URLRequest(url: url)
         
         var responseMessage: String?
@@ -152,56 +153,47 @@ class ViewController: UIViewController {
                 return
             }
             
-//            if let data = data, let dataString = String(data: data, encoding: .utf8) {
-//                print("Response data string:\n \(dataString)")
-//                responseMessage = "dataString: \(dataString)"
-//                print(type(of: dataString))
-//                self.updateLabelText(flag: true, data: dataString)
-//            }
-            
             DispatchQueue.global(qos: .background).async {
                 
-                var dataa = String()
+                var textBuffer = String()
                 
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
                     print("Response data string:\n \(dataString)")
-                    dataa = dataString
+                    textBuffer = dataString
                 }
                 
                 DispatchQueue.main.async {
-                    responseLabel.text = dataa
+                    responseLabel.text = textBuffer
                 }
             }
             
 
         }
-        //        responseLabel.text = responseMessage
         task.resume()
-//        print("\nResponse: \(responseMessage)\n")
 
     }
     
-    func updateLabelText(flag: Bool, data: String) {
-        guard flag else {
-            return
-        }
-        
-        responseText = data
-        print("Update text \(responseText)")
-//        responseLabel.text = data
-    }
+//    func updateLabelText(flag: Bool, data: String) {
+//        guard flag else {
+//            return
+//        }
+//
+//        responseText = data
+//        print("Update text \(responseText)")
+////        responseLabel.text = data
+//    }
     
-    func loadData(from url: URL, completion: @escaping (Result<Data?, URLError>) -> Void) throws {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let urlError = error as? URLError {
-                completion(.failure(urlError))
-            }
-            
-            if let data = data {
-                completion(.success(data))
-            }
-        }.resume()
-    }
+//    func loadData(from url: URL, completion: @escaping (Result<Data?, URLError>) -> Void) throws {
+//        URLSession.shared.dataTask(with: url) { data, response, error in
+//            if let urlError = error as? URLError {
+//                completion(.failure(urlError))
+//            }
+//
+//            if let data = data {
+//                completion(.success(data))
+//            }
+//        }.resume()
+//    }
     
 //    @objc func encodeData(sender: UIButton!) {
 //
