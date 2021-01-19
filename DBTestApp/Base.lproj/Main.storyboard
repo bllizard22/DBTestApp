@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nat-SP-ypC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nat-SP-ypC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -72,7 +72,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="a2I-H0-kn7">
-                                <rect key="frame" x="47" y="435" width="320" height="192"/>
+                                <rect key="frame" x="47" y="400" width="320" height="192"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-ge-IIG">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
@@ -167,7 +167,7 @@
                             <constraint firstItem="QeT-2J-MBv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="WIt-v1-XUc"/>
                             <constraint firstItem="ymN-mz-y0J" firstAttribute="top" secondItem="qqM-WD-x74" secondAttribute="bottom" constant="29" id="XpJ-A1-c8D"/>
                             <constraint firstItem="qqM-WD-x74" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="fCB-Uc-8Xu"/>
-                            <constraint firstItem="ymN-mz-y0J" firstAttribute="top" secondItem="a2I-H0-kn7" secondAttribute="bottom" constant="85" id="lOs-fu-5qJ"/>
+                            <constraint firstItem="ymN-mz-y0J" firstAttribute="top" secondItem="a2I-H0-kn7" secondAttribute="bottom" constant="120" id="lOs-fu-5qJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qqM-WD-x74" secondAttribute="trailing" constant="12" id="mhp-gv-L4h"/>
                             <constraint firstItem="qqM-WD-x74" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vk6-vf-QBc"/>
                             <constraint firstItem="ymN-mz-y0J" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zsc-ip-X41"/>

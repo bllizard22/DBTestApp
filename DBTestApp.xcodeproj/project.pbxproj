@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		853156EA25B6BCDA00738F95 /* DBTestApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DBTestApp.entitlements; sourceTree = "<group>"; };
 		8542524E258F7D4600A2ECAC /* DBTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85425251258F7D4600A2ECAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85425253258F7D4600A2ECAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		85425250258F7D4600A2ECAC /* DBTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				853156EA25B6BCDA00738F95 /* DBTestApp.entitlements */,
 				85425251258F7D4600A2ECAC /* AppDelegate.swift */,
 				85425253258F7D4600A2ECAC /* SceneDelegate.swift */,
 				85425255258F7D4600A2ECAC /* ViewController.swift */,
@@ -286,6 +288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DBTestApp/DBTestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
 				INFOPLIST_FILE = DBTestApp/Info.plist;
@@ -294,7 +297,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = no.DBTestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bllizard.DBTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -306,6 +309,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DBTestApp/DBTestApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RTRWQZT32D;
 				INFOPLIST_FILE = DBTestApp/Info.plist;
@@ -314,7 +318,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = no.DBTestApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bllizard.DBTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

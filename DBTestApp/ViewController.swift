@@ -40,6 +40,20 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:))
                                                , name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
+//    @objc func kbDidShow(notification: Notification) {
+//        guard let userInfo = notification.userInfo else {
+//            return
+//        }
+//        let kbFrameSize = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+//
+//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height + kbFrameSize.height)
+//        (self.view as! UIScrollView).scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbFrameSize.height, right: 0)
+//    }
+//
+//    @objc func kbDidHide() {
+//        (self.view as! UIScrollView).contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+//    }
 
     @IBAction func submitAction(_ sender: Any) {
 //        let dataStruct = DataJSON(name: nameTextField.text ?? "", email: emailTextField.text ?? "", phone: phoneTextField.text ?? "")
@@ -132,7 +146,7 @@ class ViewController: UIViewController {
         let url = URL(string: host_address)!
         var request = URLRequest(url: url)
         
-        var responseMessage: String?
+//        var responseMessage: String?
                 
         // Configure request authentication
         request.setValue(
@@ -140,7 +154,8 @@ class ViewController: UIViewController {
             forHTTPHeaderField: "Authorization"
         )
         // Serialize HTTP Body data as JSON
-        let body = ["user_id": "12", "name": name, "email": email, "phone": phone]
+        let randomUID = String(Int.random(in: 10...20))
+        let body = ["user_id": randomUID, "name": name, "email": email, "phone": phone]
         let bodyData = try? JSONSerialization.data(
             withJSONObject: body,
             options: []
@@ -155,18 +170,17 @@ class ViewController: UIViewController {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (data, response, error) in
             
-            if let error = error {
-                print("Error took place \(error)")
-                //                label.text = "\(error)"
-                return
-            }
-            
             DispatchQueue.global(qos: .background).async {
                 
                 var textBuffer = String()
                 
+                if let error = error {
+                                print("\nError took place\n \(error)")
+                    textBuffer = error.localizedDescription
+                }
+                
                 if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("Response data string:\n \(dataString)")
+                    print("\nResponse data string:\n \(dataString)")
                     textBuffer = dataString
                 }
                 
@@ -182,13 +196,13 @@ class ViewController: UIViewController {
     }
     
     @objc func keyboardWillChange(notification: Notification) {
-        
+
         guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
         if notification.name == UIResponder.keyboardWillShowNotification ||
             notification.name == UIResponder.keyboardWillChangeFrameNotification {
-            view.frame.origin.y = -keyboardRect.height
+            view.frame.origin.y = -(keyboardRect.height/4*3)
         }
         if notification.name == UIResponder.keyboardWillHideNotification {
             view.frame.origin.y = 0
@@ -200,29 +214,6 @@ class ViewController: UIViewController {
         emailTextField.endEditing(true)
         phoneTextField.endEditing(true)
     }
-
-    
-//    @objc func encodeData(sender: UIButton!) {
-//
-////        let jsonData = try! Data(from: url)
-//
-//        let _JSON = """
-//            {
-//            "title": "Optionals in Swift explained: 5 things you should know",
-//            "address": "https://www.avanderlee.com/swift/optionals-in-swift-explained-5-things-you-should-know/",
-//            "location": "swift",
-//            "price": "47093"
-//            }
-//            """
-//                let jsonData = _JSON.data(using: .utf8)!
-//
-////        let url = Bundle.main.url(forResource: "cardsDataJSON_one", withExtension: "json")!
-//        let url = Bundle.main.url(forResource: "cardsDataJSON", withExtension: "json")!
-//
-//        let jsonData = try! Data(contentsOf: url)
-//        let data: [Int: DataJSON] = try! JSONDecoder().decode([Int: DataJSON].self, from: jsonData)
-//
-//    }
     
 }
 

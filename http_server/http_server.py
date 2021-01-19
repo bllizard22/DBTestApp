@@ -1,5 +1,7 @@
 import datetime
 import json
+import sys
+import random
 from uptime import uptime
 
 from flask import Flask, render_template, request
@@ -34,7 +36,6 @@ def start_http(host_ip, host_port):
     data = json.loads(file_d)
     host_ip = host_ip
     host_http_port = host_port
-
     app = Flask(__name__, template_folder='templates')
 
     '''Основная страница сервера'''
@@ -48,25 +49,41 @@ def start_http(host_ip, host_port):
     def wait_time_post():
         # headers = request.headers
         # print(headers)
+        '''Получение тела запроса'''
         body = request.get_json(force=True)
         print(body)
+
+        '''Чтение имеющегося файла-базы'''
+        with open('data.json', 'r') as file:
+            data_json = json.load(file)
+
         try:
             user_id = body['user_id']
             new_user = {'name': body['name'],
                         'email': body['email'],
                         'phone': body['phone']}
-            new_record = {body['user_id']: new_user}
-            print(new_record)
+            new_record = {user_id: new_user}
 
+            try:
+                data_json[user_id] = new_user
+            except:
+                '''Печать неизвестных ошибок'''
+                print(sys.exc_info()[0])
+
+            print("Full doc:\n", data_json)
+
+            '''Записываем обратно в файл'''
             with open('data.json', 'w') as file:
-                json.dump(new_record, file, indent=2)
+                json.dump(data_json, file, indent=2)
         except:
+            print(sys.exc_info()[0])
             user_id = "no user data"
             new_user = {'name': "no_name",
                         'email': "no_email",
                         'phone': "no_phone"}
 
-        return f"POST. Status OK\nemail: {new_user['email']}"
+        '''Отвечаем приложению'''
+        return f"POST. Status OK\nemail: {new_user['email']}\nUID: {user_id}"
 
     # '''Внесение изменений в конфиг-файл'''
     # @app.route("/config")
@@ -112,4 +129,5 @@ def start_http(host_ip, host_port):
 if __name__ == "__main__":
     # start_http('169.254.199.129', 127)
     # start_http('', 127)
+
     start_http('192.168.1.59', 5027)
