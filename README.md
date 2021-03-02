@@ -1,22 +1,22 @@
-# Структура проекта
+# Project Structure
 
 
-- *DBTestApp* - основной проект Xcode.
+- *DBTestApp* - main Xcode project.
 
-- *http_server* - набросок в python, который отвечает за HTTP-соединение.
+- *http_server* - scratch in Python responding on HTTP-connection.
 
-- *JSON_Playground* - тестовые файлы по работе с JSON (не используются в основной части проекта).
+- *JSON_Playground* - test files for JSON processing (not used in this project).
 
 ---
 
-# Сервер
+# Server
 
-- *http_server.py* при запуске поднимает HTTP-сервер на указаном IP и порту (IP должен совпадать с адресом компьютера). Используется фреймворк **Flask**.
+- *http_server.py* on run launches HTTP-server on declared IP and Port (based on **Flask**).
 
-- *data.json* сохраняет в себе данные, полученные из HTTP-запроса.
+- *data.json* stores data obtained from HTTP-request.
 
-# Примечание по работе с iOS-приложением
+# Notes about iOS-app
 
-Перед запуском приложения следует указать IP:port сервера в параметре *host_address* (строка 16).
-На форме регистрации есть кнопки **GET** и **POST**, которые оправляют соответсвующие запросы на сервер и печатают полученный ответ в консоль Xcode.
-Кнопка **Завершить** отправляет POST-запрос с данными из текстовых полей и печатает ответ сервера над этой кнопкой.
+Before launch you should set IP:Port in variable *host_address* (line 16).
+**GET** and **POST** buttons send corresponding sample request to server and print response in Xcode console.
+**Send** button sends POST-request with data from textfields and displays server response on the screen.
