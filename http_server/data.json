@@ -1,8 +1,8 @@
 {
   "0": {
-    "name": "_",
-    "email": "@mail.com",
-    "phone": "0"
+    "name": "",
+    "email": "",
+    "phone": ""
   },
   "15": {
     "name": "",
@@ -10,13 +10,38 @@
     "phone": ""
   },
   "12": {
-    "name": "Nick",
-    "email": "test@mail.com",
-    "phone": "8800"
+    "name": "",
+    "email": "",
+    "phone": ""
   },
   "10": {
-    "name": "Nick",
-    "email": "test@mail.com",
-    "phone": "7926"
+    "name": "",
+    "email": "",
+    "phone": ""
+  },
+  "18": {
+    "name": "",
+    "email": "",
+    "phone": ""
+  },
+  "20": {
+    "name": "",
+    "email": "",
+    "phone": ""
+  },
+  "11": {
+    "name": "",
+    "email": "",
+    "phone": ""
+  },
+  "13": {
+    "name": "",
+    "email": "",
+    "phone": ""
+  },
+  "19": {
+    "name": "",
+    "email": "",
+    "phone": ""
   }
 }

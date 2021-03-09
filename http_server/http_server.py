@@ -127,7 +127,4 @@ def start_http(host_ip, host_port):
 
 
 if __name__ == "__main__":
-    # start_http('169.254.199.129', 127)
-    # start_http('', 127)
-
-    start_http('192.168.1.59', 5027)
+    start_http('', 127)
