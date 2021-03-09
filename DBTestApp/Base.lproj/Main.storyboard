@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nat-SP-ypC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nat-SP-ypC">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
                                             <constraint firstAttribute="height" constant="50" id="dQl-aN-xxH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
-                                        <state key="normal" title="Вход">
+                                        <state key="normal" title="Log In">
                                             <color key="titleColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
@@ -38,7 +38,7 @@
                                             <constraint firstAttribute="height" constant="50" id="zGZ-bO-iuw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="24"/>
-                                        <state key="normal" title="Регистрация">
+                                        <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="-632" y="98"/>
         </scene>
-        <!--Регистрация-->
+        <!--Create record-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="DBTestApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,7 +74,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="a2I-H0-kn7">
                                 <rect key="frame" x="47" y="400" width="320" height="192"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-ge-IIG">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QbO-ge-IIG">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="8GU-eX-FKk"/>
@@ -90,7 +90,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Номер телефона" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9z-2G-0ZQ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9z-2G-0ZQ">
                                         <rect key="frame" x="0.0" y="152" width="320" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="32a-KQ-gOM"/>
@@ -111,7 +111,7 @@
                                     <constraint firstAttribute="height" constant="50" id="q5K-c9-lXE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="24"/>
-                                <state key="normal" title="Завершить">
+                                <state key="normal" title="Done">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -173,7 +173,7 @@
                             <constraint firstItem="ymN-mz-y0J" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zsc-ip-X41"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Регистрация" id="q4p-Qy-CPu"/>
+                    <navigationItem key="navigationItem" title="Create record" id="q4p-Qy-CPu"/>
                     <connections>
                         <outlet property="emailTextField" destination="Xf4-7C-poc" id="NKf-ya-dK4"/>
                         <outlet property="getButton" destination="eAp-Nw-tps" id="y5e-jB-WHE"/>

@@ -13,7 +13,8 @@ struct DataJSON: Codable {
     var phone: String
 }
 
-let host_address = "http://192.168.1.59:5027/"
+//let host_address = "http://127.0.0.1:127/"
+let host_address = "http://10.101.63.45:5027/"
 
 class ViewController: UIViewController {
 
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
                      , responseLabel: responseLabel)
         
         responseLabel.text = responseText
-        print("Action text \(responseText)")
+        print("Action text \(responseText!)")
 
     }
         
@@ -89,7 +90,8 @@ class ViewController: UIViewController {
         request.httpMethod = "GET"
          
         // HTTP Request Parameters which will be sent in HTTP Request Body
-        let postString = "accept: application/json, accept: application/json, text: 124";
+        // No body in GET-request
+        
         // Perform HTTP Request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 
@@ -124,6 +126,7 @@ class ViewController: UIViewController {
         )
         // Set HTTP Request Body
         request.httpBody = postString
+        
         // Perform HTTP Request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 
