@@ -66,8 +66,12 @@ class ViewController: UIViewController {
                      , phone: phoneTextField.text ?? ""
                      , responseLabel: responseLabel)
         
-        responseLabel.text = responseText
-        print("Action text \(responseText!)")
+        if responseText != nil {
+            print("Action text \(responseText!)")
+            responseLabel.text = responseText
+        } else {
+            responseLabel.text = "No response"
+        }
 
     }
         
